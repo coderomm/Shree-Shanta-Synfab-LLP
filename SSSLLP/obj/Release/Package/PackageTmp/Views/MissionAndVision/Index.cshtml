@@ -1,0 +1,166 @@
+﻿
+@{
+    ViewBag.Title = "SSS LLP - Mission & Vision";
+}
+
+<main>
+    <!-- breadcrumb area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="~/"><i class="fa fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a class="@((ViewBag.ActivePage == "MissionAndVision") ? "active" : "")" href="~/MissionAndVision">Mission & Vision</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+    <!-- checkout main wrapper start -->
+    <div class="checkout-page-wrapper section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Checkout Login Coupon Accordion Start -->
+                    <div class="checkoutaccordion" id="checkOutAccordion">
+                        <div class="card">
+                            <h5>
+                                Our<span data-bs-toggle="" data-bs-target="#logInaccordion">Mission</span>
+                            </h5>
+                            <div id="logInaccordion" class="" data-bs-parent="#checkOutAccordion">
+                                <div class="card-body">
+
+                                    <div class="login-reg-form-wrap mt-20">
+                                        <div class="row">
+                                            <div class="col-lg-7 m-auto">
+                                                <p class="common-para mt-0 text-justify">
+                                                    "At our weaving textile company, our mission is to meticulously craft and produce textiles of exceptional quality and beauty. We are dedicated to preserving the artistry of weaving by blending time-honored techniques with contemporary designs. Our goal is to create textiles that inspire awe, elevate spaces, and ignite creativity. We strive to exceed our customers' expectations by providing unmatched craftsmanship, attention to detail, and personalized service. With a passion for excellence, we aim to be the preferred choice for discerning individuals and businesses seeking luxurious, sophisticated, and captivating woven textiles."
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h5>
+                                Our<span data-bs-toggle="" data-bs-target="#couponaccordion">
+                                    Vision
+                                </span>
+                            </h5>
+                            <div id="couponaccordion" class="" data-bs-parent="#checkOutAccordion">
+                                <div class="card-body">
+
+                                    <div class="login-reg-form-wrap mt-20">
+                                        <div class="row">
+                                            <div class="col-lg-7 m-auto">
+                                                <p class="common-para mt-0 text-justify">
+                                                    "Our vision is to be a globally recognized leader in the weaving textile industry, setting trends and pushing boundaries with our innovative designs and impeccable craftsmanship. We aspire to inspire the world of fashion, interior design, and beyond by constantly exploring new possibilities in weaving techniques and materials. We aim to foster sustainable practices throughout our manufacturing processes, honoring our commitment to both the environment and our valued customers. By continually evolving and delighting our clientele, we envision weaving a legacy of elegance, creativity, and enduring quality that transcends generations."
+                                                    </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Checkout Login Coupon Accordion End -->
+                </div>
+            </div>
+            <div class="row">
+
+
+                <!-- Order Summary Details -->
+                <div class="col-lg-12">
+                    <div class="order-summary-details">
+                        <h4 class="checkout-title">
+                            Privacy Policy:
+                        </h4>
+                        <div class="order-summary-content">
+
+                            <!-- Order Payment Method -->
+                            <div class="order-payment-method">
+                                <div class="single-payment-method show">
+                                    <div class="payment-method-name">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="cashon" name="paymentmethod" value="cash" class="custom-control-input" checked="">
+                                            <label class="custom-control-label" for="cashon">Product Availability: </label>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method-details" data-method="cash">
+                                        <p>Our woven textiles are subject to availability. We strive to accurately display product information, but variations in color and texture may occur due to the nature of weaving techniques.</p>
+                                    </div>
+                                </div>
+                                <div class="single-payment-method">
+                                    <div class="payment-method-name">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="directbank" name="paymentmethod" value="bank" class="custom-control-input">
+                                            <label class="custom-control-label" for="directbank">
+                                                Order Confirmation:
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method-details" data-method="bank">
+                                        <p>Upon placing an order, you will receive an order confirmation via email. This serves as acknowledgement of your purchase, but does not guarantee product availability. We reserve the right to cancel or modify orders if necessary.</p>
+                                    </div>
+                                </div>
+                                <div class="single-payment-method">
+                                    <div class="payment-method-name">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="checkpayment" name="paymentmethod" value="check" class="custom-control-input">
+                                            <label class="custom-control-label" for="checkpayment">
+                                                Returns and Exchanges:
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method-details" data-method="check">
+                                        <p>
+                                            We accept returns and exchanges within a specified timeframe, provided the products are in their original condition. Please refer to our detailed Return Policy for further instructions and eligibility criteria.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="single-payment-method">
+                                    <div class="payment-method-name">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="Property" name="paymentmethod" value="Property" class="custom-control-input">
+                                            <label class="custom-control-label" for="Property">Intellectual Property:</label>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method-details" data-method="Property">
+                                        <p>All content on our website, including text, images, and designs, are protected by intellectual property rights. Unauthorized use or reproduction of our content is strictly prohibited.</p>
+                                    </div>
+                                </div>
+
+                                <div class="single-payment-method">
+                                    <div class="payment-method-name">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="Law" name="paymentmethod" value="Law" class="custom-control-input">
+                                            <label class="custom-control-label" for="Law">Governing Law:</label>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method-details" data-method="Law">
+                                        <p>These terms and conditions are governed by the laws of the jurisdiction in which our company is located. Any disputes arising from the use of our website or products shall be resolved in accordance with these laws.</p>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- checkout main wrapper end -->
+</main>
+

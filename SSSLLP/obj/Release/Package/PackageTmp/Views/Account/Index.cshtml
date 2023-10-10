@@ -1,0 +1,172 @@
+﻿@model SSSLLP.Models.Customers_Tbl
+@{
+    ViewBag.Title = "SSS LLP - Account Dashboard";
+}
+
+<main>
+    <!-- breadcrumb area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="~/"><i class="fa fa-home"></i></a></li>
+                                <li class="breadcrumb-item active">Account</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+    <!-- my account wrapper start -->
+    <div class="my-account-wrapper section-padding">
+        <div class="container">
+            <div class="section-bg-color">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- My Account Page Start -->
+                        <div class="myaccount-page-wrapper">
+                            <!-- My Account Tab Menu Start -->
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="myaccount-tab-menu nav" role="tablist">
+                                        <a href="#dashboad" class="active" data-bs-toggle="tab">
+                                            <i class="fa fa-dashboard"></i>
+                                            Dashboard
+                                        </a>
+                                       
+                                        <a href="#account-info" data-bs-toggle="tab">
+                                            <i class="fa fa-user"></i> Account
+                                            Details
+                                        </a>
+                                        <a href="login-register.html"><i class="fa fa-sign-out"></i> Logout</a>
+                                    </div>
+                                </div>
+                                <!-- My Account Tab Menu End -->
+                                <!-- My Account Tab Content Start -->
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="tab-content" id="myaccountContent">
+                                        <!-- Single Tab Content Start -->
+                                        <div class="tab-pane fade show active" id="dashboad" role="tabpanel">
+                                            <div class="myaccount-content">
+                                                <h5>Dashboard</h5>
+                                                <div class="welcome">
+                                                    <p>
+                                                        Hello, <strong>@Model.First_Name @Model.Last_Name ( @Model.UserName )</strong> (If Not <strong>
+                                                            @Model.UserName
+                                                            !
+                                                        </strong><a href="~/Account/Logout" class="logout"> Logout</a>)
+                                                    </p>
+                                                </div>
+                                                <p class="mb-0">
+                                                    From your account dashboard. you can easily check &
+                                                    view your recent orders, manage your enquires and edit your password and account details.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Single Tab Content End -->
+                                        <!-- Single Tab Content Start -->
+                                        <div class="tab-pane fade" id="account-info" role="tabpanel">
+                                            <div class="myaccount-content">
+                                                <h5>Account Details</h5>
+                                                <div class="account-details-form">
+                                                    @*<form action="~/Account/Index" method="post">*@
+                                                    @using (Html.BeginForm("Index", "Account", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                                                    {
+                                                        @Html.AntiForgeryToken()
+                                                        <input hidden type="number" value="@Model.Id" name="Id" />
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="single-input-item">
+                                                                    <label for="First_Name" class="required">
+                                                                        First
+                                                                        Name
+                                                                    </label>
+                                                                    <input type="text" name="First_Name" placeholder="First Name" value="@Model.First_Name" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="single-input-item">
+                                                                    <label for="Last_Name" class="required">
+                                                                        Last
+                                                                        Name
+                                                                    </label>
+                                                                    <input type="text" name="Last_Name" value="@Model.Last_Name" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="single-input-item">
+                                                            <label for="UserName" class="required">User Name</label>
+                                                            <input type="text" name="UserName" value="@Model.UserName" required>
+                                                        </div>
+
+                                                        <div class="single-input-item">
+                                                            <label for="State" class="required">State</label>
+                                                            <input type="text" name="State" value="@Model.State" required>
+                                                        </div>
+
+                                                        <div class="single-input-item">
+                                                            <label for="City" class="required">City</label>
+                                                            <input type="text" name="City" value="@Model.City" required>
+                                                        </div>
+
+                                                        <div class="single-input-item">
+                                                            <label for="Email" class="required">Email Address</label>
+                                                            <input type="email" name="Email" value="@Model.Email" required>
+                                                        </div>
+
+                                                        <div class="single-input-item">
+                                                            <label for="Mobile" class="required">Mobile</label>
+                                                            <input type="number" name="Mobile" value="@Model.Mobile" required>
+                                                        </div>
+
+                                                        <div class="single-input-item">
+                                                            <label for="Address" class="required">Address</label>
+                                                            <input type="text" name="Address" value="@Model.Address" required>
+                                                        </div>
+
+                                                        <fieldset>
+                                                            <legend>Change Password</legend>
+                                                            <div class="single-input-item">
+                                                                <label for="Password" class="required">
+                                                                    Current Password
+                                                                </label>
+                                                                <input readonly type="text" name="Password" value="@Model.Password">
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="single-input-item">
+                                                                        <label for="new-pwd" class="required">
+                                                                            New
+                                                                            Password
+                                                                        </label>
+                                                                        <input type="text" name="newpwd" placeholder="New Password">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </fieldset>
+                                                        <div class="single-input-item">
+                                                            <button class="btn btn-sqr">Save Changes</button>
+                                                        </div>
+                                                    }
+                                                </div>
+                                                
+                                            </div>
+                                        </div> <!-- Single Tab Content End -->
+                                    </div>
+                                </div> <!-- My Account Tab Content End -->
+                            </div>
+                        </div> <!-- My Account Page End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- my account wrapper end -->
+</main>
+

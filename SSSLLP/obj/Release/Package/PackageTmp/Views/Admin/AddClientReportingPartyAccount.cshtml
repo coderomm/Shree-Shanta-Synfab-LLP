@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "Add Client Reporting Party Account";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link href="~/Content/AdminAssets/plugins/select2/css/select2.min.css" rel="stylesheet" />
+<link href="~/Content/AdminAssets/plugins/select2/css/select2-bootstrap4.css" rel="stylesheet" />
+@model SSSLLP.Models.ClientReportingPartyAccountTbl
+
+<div class="page-wrapper">
+    <div class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Forms</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="~/Admin"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Form Layouts</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+        <!--end breadcrumb-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h6 class="mb-0 text-uppercase">Add Client Reporting Party Account</h6>
+                <hr>
+                <div class="card border-top border-0 border-4 border-primary">
+                    <div class="card-body p-5">
+                        <div class="card-title d-flex align-items-center">
+                            <h5 class="mb-0 text-danger">Add Client Reporting Party Account</h5>
+                        </div>
+                        <hr>
+                        @using (Html.BeginForm("AddClientReportingPartyAccount", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "row g-3" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="mb-3">
+                                <label class="form-label">Select Customer Account To Add ClientParty Reporting Account</label>
+                                <select id="customersDropdown" class="single-select" name="SelectedCustomerId">
+                                    <option value="">Select a customer account</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label for="PartyName" class="form-label">Party Name</label>
+                                <div class="input-group">
+                                    <input name="PartyName" type="text" class="form-control" id="PartyName" placeholder="Party Name">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label for="UserName" class="form-label">User Name</label>
+                                <div class="input-group">
+                                    <input name="UserName" type="text" class="form-control" id="UserName" placeholder="User Name">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label for="Password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <input name="Password" type="text" class="form-control" id="Password" placeholder="Password">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label for="VerificationName" class="form-label">Verification Name</label>
+                                <div class="input-group">
+                                    <input name="VerificationName" type="text" class="form-control" id="VerificationName" placeholder="Verification Name">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-danger px-5">Add</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h6 class="mb-0 text-uppercase">Add Client Reporting Party Account DataTable</h6>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>PartyName</th>
+                                <th>UserName</th>
+                                <th>VerificationName</th>
+                                <th>Status</th>
+                                <th>A/D</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in @ViewBag.ClientReportingPartyAccount)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.PartyName</td>
+                                    <td>@item.UserName</td>
+                                    <td>@item.VerificationName</td>
+                                    <td>@item.Status</td>
+                                    @{
+                                        if (item.Status == true)
+                                        {
+                                            <td><a href="@Url.Action("ChangeToDeactiveClientReportingPartyAccount", "Admin",new {id=item.Id})" class="btn btn-secondary">Deactive</a></td>
+                                        }
+                                        else
+                                        {
+                                            <td><a href="@Url.Action("ChangeToActiveClientReportingPartyAccount", "Admin",new {id=item.Id})" class="btn btn-success">Active</a></td>
+                                        }
+                                    }
+                                    <td><a href="@Url.Action("EditClientReportingPartyAccount", "Admin",new {id=item.Id})" class="btn btn-primary">Edit</a></td>
+                                    <td><a href="@Url.Action("DeleteClientReportingPartyAccount", "Admin",new {id=item.Id})" class="btn btn-danger">Delete</a></td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/AdminAssets/js/jquery.min.js"></script>
+<script src="~/Content/AdminAssets/plugins/select2/js/select2.min.js"></script>
+<script>
+
+    $('.single-select').select2({
+        theme: 'bootstrap4',
+        width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+        placeholder: $(this).data('placeholder'),
+        allowClear: Boolean($(this).data('allow-clear')),
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $.get("/Admin/GetCustomerAccounts", function (data) {
+            var dropdown = $("#customersDropdown");
+            $.each(data, function (index, customer) {
+                dropdown.append($("<option />").val(customer.Id).text(customer.UserName));
+            });
+        });
+    });
+</script>

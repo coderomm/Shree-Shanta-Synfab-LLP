@@ -1,0 +1,162 @@
+﻿@model SSSLLP.Models.Company_Details_Tbl
+@{
+    ViewBag.Title = "SSS LLP - About Us";
+}
+
+<main>
+    <!-- breadcrumb area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="~/"><i class="fa fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a class="@((ViewBag.ActivePage == "About") ? "active" : "")" href="~/About">About SSS LLP </a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+
+    <section class="special-product-area section-padding pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <div class="special-content">
+                        <h1 class="special-title">Shree Shanta Synfab LLP</h1>
+                        <div class="price-box">
+                            <span class="price-regular">
+                                "Manufacturer & Exporter
+                                Of Suiting Fabrics"
+                            </span>
+                        </div>
+                        <p style="text-align:justify;">@Model.cAbout</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2">
+                    <div class="special-product-thumb">
+                        <img src="~/Content/assets/Images/About/aboutus-img.png" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="aboutTeam section-padding" style="border-top: 1px solid #eeeeee;">
+        <div class="container">
+            <h2 class="fw-bold mb-5 text-center">Management Team </h2>
+            @foreach (var team in ViewBag.team)
+            {
+                var isEven = team.Id % 2 == 0;
+
+                if (isEven)
+                {
+                    <div class="row">
+                        <div class="col-lg-12 col-12">
+                            <div class="row" style="border-bottom: 1px solid #000000;">
+                                <div class="col-lg-3 col-12">
+                                    <div class="memDp p-3">
+                                        <img class="img-fluid rounded-2" src="~/Content/assets/Images/Team/@team.image" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 col-12">
+                                    <div class="memInfo p-3">
+                                        <p class="" style="text-align:justify;">@team.about</p>
+                                        <h4 class="fw-bold my-3">- @team.name</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-lg-12 col-12">
+                            <div class="row" style="border-bottom: 1px solid #000000;">
+                                <div class="col-lg-9 col-12">
+                                    <div class="memInfo p-3">
+                                        <p class="" style="text-align:justify;">@team.about</p>
+                                        <h4 class="fw-bold my-3">- @team.name</h4>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-12">
+                                    <div class="memDp p-3">
+                                        <img class="img-fluid rounded-2" src="~/Content/assets/Images/Team/@team.image" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            }
+        </div>
+    </section>
+
+    <div class="banner-statistics-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <figure class="banner-statistics" style="display: flex; align-items: center;justify-content:center;">
+                        <h2 class="position-absolute" style="z-index:1;color:white;">Supreme quality is the principle objective of our company.</h2>
+                        <img src="@Url.Content("~/Content/assets/Images/About/"+ Model.cSliderImage1)" alt="SSSLLP Company Image" class="img-fluid rounded-3">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="aboutTeam section-padding" style="border-top: 1px solid #eeeeee;">
+        <div class="container">
+            <h2 class="fw-bold mb-5 text-center">Bhilwara to the world </h2>
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-12">
+                    <div class="leftsizeimg">
+                        <img class="img-fluid rounded-2" src="~/Content/assets/Images/Team/@ViewBag.ceo" />
+                    </div>
+                </div>
+                <div class="col-lg-5 col-sm-5 col-12">
+                    <div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-7040d1bdfceb567bbbfe">
+                        <div class="sqs-block-content">
+
+                            <div class="sqs-html-content">
+
+                                <p>
+                                    Decades ago, when Poly Viscose Suits was a concept unheard of, SSS LLP pioneered the segment and transformed the industry.
+                                </p>
+                                <p>Today, SSS LLP is a multi-million-dollar company, leading the textile manufacturing and exporting industry with a diverse range of products. The future looks as promising as ever, because BSL’s very fabric of operations is sewn with trust by thousands of stakeholders across the world.&nbsp;</p>
+                                <p style="color:#8D98A7">
+                                    <span>
+                                        <strong>
+                                            global / heritage / commitment / quality / precision / craftsmanship / innovation / integrity / people before profit / sustainability
+                                        </strong>
+                                    </span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-sm-3 col-12">
+                    <div class="rightsizeimg">
+                        <img src="~/Content/assets/Images/About/cotton-flower.jpg" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="midBorder mx-auto my-2" style="height: 1px; background-color: #ffa073; width: 80%"></div>
+
+
+</main>
+

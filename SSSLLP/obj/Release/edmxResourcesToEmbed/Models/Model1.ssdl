@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SSSLLPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uName" Type="nvarchar(max)" />
+    <Property Name="uPassword" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CallEnquiry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cname" Type="nvarchar(max)" />
+    <Property Name="cmobile" Type="nvarchar(max)" />
+    <Property Name="cpattern" Type="nvarchar(max)" />
+    <Property Name="cspec" Type="nvarchar(max)" />
+    <Property Name="cqty" Type="nvarchar(max)" />
+    <Property Name="cventure" Type="nvarchar(max)" />
+    <Property Name="rts" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ClientReportingPartyAccountTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VerificationName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="PrimaryCustId" Type="int" />
+  </EntityType>
+  <EntityType Name="ClientReportingTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoomNo" Type="nvarchar(max)" />
+    <Property Name="OwnParty" Type="nvarchar(max)" />
+    <Property Name="QualityNo" Type="nvarchar(max)" />
+    <Property Name="ReedxPickxRs" Type="nvarchar(max)" />
+    <Property Name="BeamNo" Type="nvarchar(max)" />
+    <Property Name="BeamPipeNo" Type="nvarchar(max)" />
+    <Property Name="DateOfGaitingKnotting" Type="nvarchar(max)" />
+    <Property Name="BillFallDate" Type="nvarchar(max)" />
+    <Property Name="Nos" Type="nvarchar(max)" />
+    <Property Name="AvgOfRollingMtr" Type="nvarchar(max)" />
+    <Property Name="AvgOfPick" Type="nvarchar(max)" />
+    <Property Name="TotalFabricReced" Type="nvarchar(max)" />
+    <Property Name="BeamBalanceMtr" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Color_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ColorName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Company_Details_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cName" Type="nvarchar(max)" />
+    <Property Name="cLogo" Type="nvarchar(max)" />
+    <Property Name="cSliderImage1" Type="nvarchar(max)" />
+    <Property Name="cSliderImage2" Type="nvarchar(max)" />
+    <Property Name="cSliderImage3" Type="nvarchar(max)" />
+    <Property Name="cAbout" Type="nvarchar(max)" />
+    <Property Name="cAddress" Type="nvarchar(max)" />
+    <Property Name="cEmail" Type="nvarchar(max)" />
+    <Property Name="cMobile1" Type="nvarchar(max)" />
+    <Property Name="cMobile2" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Contact_Enqtbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uname" Type="nvarchar(max)" />
+    <Property Name="umob" Type="nvarchar(max)" />
+    <Property Name="uemail" Type="nvarchar(max)" />
+    <Property Name="usub" Type="nvarchar(max)" />
+    <Property Name="umsg" Type="nvarchar(max)" />
+    <Property Name="rts" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Customers_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="First_Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Last_Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Mobile" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="rts" Type="date" />
+  </EntityType>
+  <EntityType Name="Gallery_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gimage" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MyCart_Tbl">
+    <Key>
+      <PropertyRef Name="MyCartID" />
+    </Key>
+    <Property Name="MyCartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="ColorId" Type="int" />
+    <Property Name="ColorName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Order_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ShippingID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="ColorOrder" Type="int" />
+    <Property Name="OrderColorName" Type="nvarchar(max)" />
+    <Property Name="OrderDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PageVisits">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PageUrl" Type="nvarchar(max)" />
+    <Property Name="IpAddress" Type="nvarchar(max)" />
+    <Property Name="VisitDateTime" Type="datetime" />
+    <Property Name="VisitorId" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Product_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pweight" Type="nvarchar(max)" />
+    <Property Name="pdetails" Type="nvarchar(max)" />
+    <Property Name="pimg1" Type="nvarchar(max)" />
+    <Property Name="pimg2" Type="nvarchar(max)" />
+    <Property Name="pimg3" Type="nvarchar(max)" />
+    <Property Name="status" Type="bit" />
+    <Property Name="rts" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProductColorlist">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pid" Type="int" Nullable="false" />
+    <Property Name="cid" Type="int" Nullable="false" />
+    <Property Name="colorname" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Review_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uname" Type="nvarchar(max)" />
+    <Property Name="uimg" Type="nvarchar(max)" />
+    <Property Name="ureview" Type="nvarchar(max)" />
+    <Property Name="ureviewdate" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ShippingDetails">
+    <Key>
+      <PropertyRef Name="ShippingID" />
+    </Key>
+    <Property Name="ShippingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+    <Property Name="PostCode" Type="nvarchar(max)" />
+    <Property Name="OrderNote" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="about" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="image" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="SSSLLPModelStoreContainer">
+    <EntitySet Name="Admin_Tbl" EntityType="Self.Admin_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CallEnquiry" EntityType="Self.CallEnquiry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientReportingPartyAccountTbl" EntityType="Self.ClientReportingPartyAccountTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientReportingTbl" EntityType="Self.ClientReportingTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Color_Tbl" EntityType="Self.Color_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company_Details_Tbl" EntityType="Self.Company_Details_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact_Enqtbl" EntityType="Self.Contact_Enqtbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers_Tbl" EntityType="Self.Customers_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gallery_Tbl" EntityType="Self.Gallery_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MyCart_Tbl" EntityType="Self.MyCart_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_Tbl" EntityType="Self.Order_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PageVisits" EntityType="Self.PageVisits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Tbl" EntityType="Self.Product_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductColorlist" EntityType="Self.ProductColorlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Review_Tbl" EntityType="Self.Review_Tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShippingDetails" EntityType="Self.ShippingDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

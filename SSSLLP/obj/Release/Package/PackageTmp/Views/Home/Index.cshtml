@@ -1,0 +1,531 @@
+﻿
+@{
+    ViewBag.Title = "Shree Shanta Synfab LLP";
+}
+
+<main>
+
+    <!-- slider start -->
+    <section class="slider-area">
+        <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
+            @foreach (var item in @ViewBag.CompanyDetails)
+            {
+                <div class="hero-single-slide hero-overlay">
+                    <div class="ovr" style="position: absolute; top: 0%; left: 0; height: 100%; width: 100%; background-color: rgba(0,0,0,0.2); z-index: 1;"></div>
+                    <div class="hero-slider-item bg-img" data-bg="@Url.Content("~/Content/assets/Images/About/"+ item.cSliderImage1)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" style="z-index:2;">
+                                    <div class="hero-slider-content slide-2">
+                                        <h2 class="slide-title fw-bold">"Where Creativity Meets Precision: <span>Discover the Finest Woven Textiles"</span></h2>
+                                        <h6 class="slide-desc fw-bold">"Enchanting Threads, Exceptional Quality: Experience the Magic of Our Weaving Craftsmanship"</h6>
+                                        <a href="~/OurBusinesses/Suiting" class="btn btn-hero">Explore More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-single-slide hero-overlay">
+                    <div class="ovr" style="position: absolute; top: 0%; left: 0; height: 100%; width: 100%; background-color: rgba(0,0,0,0.2); z-index: 1;"></div>
+                    <div class="hero-slider-item bg-img" data-bg="@Url.Content("~/Content/assets/Images/About/"+ item.cSliderImage2)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" style="z-index:2;">
+                                    <div class="hero-slider-content slide-2">
+                                        <h2 class="slide-title fw-bold">"Unleashing the Artistry of Weaving: <span>Elevate Your Textile Experience"</span></h2>
+                                        <h6 class="slide-desc fw-bold">"Crafting Timeless Elegance Through Masterful Weaving Techniques"</h6>
+                                        <a href="~/OurBusinesses/Uniforms" class="btn btn-hero">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+    <!-- slider end -->
+    <!-- info start -->
+    <div class="service-policy section-padding">
+        <div class="container">
+            <div class="row mtn-30">
+                <div class="col-lg-3 col-sm-3 col-6">
+                    <div class="policy-item">
+                        <div class="policy-icon">
+                            <i class="pe-7s-plane"></i>
+                        </div>
+                        <div class="policy-content">
+                            <h4 class="policy-title">All Over World</h4>
+                            <p>Take orders across India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-6">
+                    <div class="policy-item">
+                        <div class="policy-icon">
+                            <i class="pe-7s-box1"></i>
+                        </div>
+                        <div class="policy-content">
+                            <h4 class="policy-title">50 Lakhs +</h4>
+                            <p>Meters of fabric annually</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-6">
+                    <div class="policy-item">
+                        <div class="policy-icon">
+                            <i class="pe-7s-home"></i>
+                        </div>
+                        <div class="policy-content">
+                            <h4 class="policy-title">25,000 + Sqft</h4>
+                            <p>Campus</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-6">
+                    <div class="policy-item">
+                        <div class="policy-icon">
+                            <i class="pe-7s-user"></i>
+                        </div>
+                        <div class="policy-content">
+                            <h4 class="policy-title">100 +</h4>
+                            <p>Workforce</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- info end -->
+    <!-- Our Fabric Products start -->
+    <div class="shop-product-wrap grid-view pt-3 pb-4">
+        <div class="container">
+            <!-- section title start -->
+            <div class="section-title text-center">
+                <h2 class="title">Our Fabric Products</h2>
+                <p class="sub-title">A Royal Showcase of Exquisite Weaving Patterns of Unmatched Grandeur</p>
+            </div>
+            <!-- section title start -->
+            <div class="row">
+                @foreach (var item in (List<SSSLLP.Models.Product_Tbl>)@ViewBag.AllProducts)
+                {
+                    { Html.RenderPartial("_Product", item); }
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Our Fabric Products end -->
+    <!-- banner statistics area start -->
+    <div class="banner-statistics-area mb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <figure id="midbanner" class="banner-statistics" style="display: flex; align-items: center;">
+                        <a href="~/Contact">
+                            <img src="~/Content/assets/img/banner/home-banner-full2.png" alt="product banner">
+                        </a>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner statistics area end -->
+    <!-- testimonial area start -->
+    <section class="testimonial-area bg-gray section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- section title start -->
+                    <div class="section-title text-center">
+                        <h2 class="title">Reviews & Feedbacks</h2>
+                        <p class="sub-title">What they say</p>
+                    </div>
+                    <!-- section title start -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="testimonial-content-wrapper">
+                        <div class="testimonial-carousel">
+                            @foreach (var item in ViewBag.Review)
+                            {
+                                <div class="testimonial-content">
+                                    <div class="testimonial-thumb">
+                                        <img src="@Url.Content("~/Content/assets/Images/Review/"+ @item.uimg)" alt="testimonial">
+                                    </div>
+                                    <p>@item.ureview</p>
+                                    <h6 class="testimonial-author">@item.uname</h6>
+                                    <span>@item.ureviewdate</span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial area end -->
+    <!-- client logo area start -->
+    <div class="brand-logo section-padding pt-0 d-none">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="brand-logo-carousel slick-row-10 slick-arrow-style">
+                        <!-- single brand start -->
+                        <div class="brand-item">
+                            <a href="#">
+                                <img src="~/Content/assets/Images/Clients/KayBeeCollection.jpg" alt="KayBeeCollection" />
+                            </a>
+                        </div>
+                        <!-- single brand end -->
+                        <!-- single brand start -->
+                        <div class="brand-item">
+                            <a href="#">
+                                <img src="~/Content/assets/Images/Clients/RamkumarTextilePvtLtd.png" alt="RamkumarTextilePvtLtd" />
+                            </a>
+                        </div>
+                        <!-- single brand end -->
+                        <!-- single brand start -->
+                        <div class="brand-item">
+                            <a href="#">
+                                <img src="~/Content/assets/Images/Clients/RanjanFabricsPrivateLimited.png" alt="RanjanFabricsPrivateLimited" />
+                            </a>
+                        </div>
+                        <!-- single brand end -->
+                        <!-- single brand start -->
+                        <div class="brand-item">
+                            <a href="#">
+                                <img src="~/Content/assets/Images/Clients/smsindiapvtltdbhilwara.png" alt="smsindiapvtltdbhilwara" />
+                            </a>
+                        </div>
+                        <!-- single brand end -->
+                        <!-- single brand start -->
+                        <div class="brand-item">
+                            <a href="#">
+                                <img src="~/Content/assets/Images/Clients/SunmoonSyntheticsPvtLtd.jpg" alt="SunmoonSyntheticsPvtLtd" />
+                            </a>
+                        </div>
+                        <!-- single brand end -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- client logo area end -->
+
+
+    @foreach (var item in ViewBag.AllProducts)
+    {
+        <!-- product Quick view modal start -->
+        <div class="modal" id="@item.pname">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- product details inner end -->
+                        <div class="product-details-inner">
+                            <div class="row">
+                                <div class="col-lg-5 col-sm-5 ">
+                                    <div class="product-large-slider">
+                                        <div class="pro-large-img img-zoom">
+                                            <img src="@Url.Content("~/Content/assets/Images/Products/"+ @item.pimg1)" alt="product-details">
+                                        </div>
+                                        <div class="pro-large-img img-zoom">
+                                            <img src="@Url.Content("~/Content/assets/Images/Products/"+ @item.pimg2)" alt="product-details">
+                                        </div>
+                                        <div class="pro-large-img img-zoom">
+                                            <img src="@Url.Content("~/Content/assets/Images/Products/"+ @item.pimg3)" alt="product-details">
+                                        </div>
+                                    </div>
+                                    <div class="pro-nav slick-row-10 slick-arrow-style">
+                                        <div class="pro-nav-thumb">
+                                            <img src="@Url.Content("~/Content/assets/Images/Products/"+ @item.pimg1)" alt="product-details">
+                                        </div>
+                                        <div class="pro-nav-thumb">
+                                            <img src="@Url.Content("~/Content/assets/Images/Products/"+ @item.pimg2)" alt="product-details">
+                                        </div>
+                                        <div class="pro-nav-thumb">
+                                            <img src="@Url.Content("~/Content/assets/Images/Products/"+ @item.pimg3)" alt="product-details">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-sm-7">
+                                    <div class="product-details-des">
+                                        <h3 class="product-name">@item.pname</h3>
+                                        <div class="ratings d-flex">
+                                            <span><i class="fa fa-star-o"></i></span>
+                                            <span><i class="fa fa-star-o"></i></span>
+                                            <span><i class="fa fa-star-o"></i></span>
+                                            <span><i class="fa fa-star-o"></i></span>
+                                            <span><i class="fa fa-star-o"></i></span>
+
+                                        </div>
+
+                                        <div class="availability">
+                                            <i class="fa fa-check-circle"></i>
+                                            <span>In stock</span>
+                                        </div>
+                                        <p class="pro-desc"> @item.pdetails </p>
+
+
+                                        <div class="col-lg-12 col-sm-12 col-12">
+                                            <span class="price-regular">Colors Available : </span>
+                                            <div class="row">
+
+                                                @foreach (var coloritem in ViewBag.ColorOptionsDict[item.Id])
+                                                {
+                                                    <div class="col-lg-4 col-sm-4 col-4">
+                                                        <div class="selectedColors d-flex justify-content-start align-items-center m-1">
+                                                            <span class="ColorName">@coloritem.colorname</span>
+                                                            <div class="mx-2" style="height:25px;width:25px;background-color:@coloritem.colorname;border-radius:10px;"></div>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                            </div>
+                                        </div>
+
+                                        <div class="price-box">
+                                            <span class="price-regular">Weight per unit : </span>
+                                            <span class="ColorName">@item.pweight</span>
+                                        </div>
+
+                                        <div class="quantity-cart-box d-flex align-items-center mt-2">
+                                            <div class="action_link">
+                                                <a class="btn btn-cart2" href="@Url.RouteUrl("WeavingPattern",new { productName = item.pname })"><span data-bs-toggle="tooltip" title="Book A Sample">Book A Sample <i class="pe-7s-cart"></i></span></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- product details inner end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- product Quick view modal end -->
+
+        <!-- product Call Enquiry Popup -->
+        <div class="modal CallEnqModal" id="CallEnq_@item.pname">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="product-details-inner">
+
+                            @using (Html.BeginForm("CallEnquiry", "Contact", FormMethod.Post, new { @enctype = "multipart/form-data", id = "CallEnquiry" }))
+                            {
+                                <input type="text" value="@item.pname" hidden />
+                                <div class="row">
+                                    <div class="col-lg-5 d-none d-lg-block">
+                                        <div class="product-large-slider">
+                                            <div class="pro-large-img img-zoom">
+                                                <img src="~/Content/assets/Images/About/fabric2.jpg" class="img-fluid" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-sm-12">
+                                        <div class="product-details-des">
+                                            <h1 class="product-name">Shree Shanta Synfab LLP</h1>
+                                            <div class="ratings d-flex">
+                                                <span><i class="fa fa-star-o"></i></span>
+                                                <span><i class="fa fa-star-o"></i></span>
+                                                <span><i class="fa fa-star-o"></i></span>
+                                                <span><i class="fa fa-star-o"></i></span>
+                                                <span><i class="fa fa-star-o"></i></span>
+                                            </div>
+                                            <p class="pro-desc text-justify">
+                                                Hello there!<br />
+                                                We noticed your interest in our fabric textile company, so kindly provide us with the following information, and our team will get back to you:
+                                            </p>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-sm-6 col-12">
+                                                    <div class="price-box">
+                                                        <span class="price-regular">Full Name:</span>
+                                                        <input type="text" name="cname" class="form-control mt-2" required />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-sm-6 col-12">
+                                                    <div class="price-box">
+                                                        <span class="price-regular">Phone Number:</span>
+                                                        <input type="text" name="cmobile" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-sm-6 col-12">
+                                                    <div class="price-box">
+                                                        <span class="price-regular">Desired Pattern:</span>
+                                                        <input type="text" name="cpattern" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-sm-6 col-12">
+                                                    <div class="price-box">
+                                                        <span class="price-regular">Fabric Specifications: (e.g., weight, width, color, pattern)</span>
+                                                        <input type="text" name="cspecification" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-sm-6 col-12">
+                                                    <div class="price-box">
+                                                        <span class="price-regular">Quantity Needed:</span>
+                                                        <input type="text" name="cqty" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-sm-6 col-12">
+                                                    <div class="price-box">
+                                                        <span class="price-regular">Company/Venture Name (if any):</span>
+                                                        <input type="text" name="cventure" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-sm-6 col-12">
+                                                    <div class="quantity-cart-box d-flex align-items-center mt-2">
+                                                        <div class="action_link">
+                                                            <button class="btn btn-cart2">Send Enquiry</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <br />
+                                                <div class="col-lg-12 col-12">
+                                                    <div class="alert alert-success" style="background: none; color: black; border-color: #ffa073;" id="CallEnquiryMessage">
+                                                        <strong>Thank You! </strong> Our team will review your enquiry promptly and reach out to you as soon as possible.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- product Call Enquiry Popup End -->
+
+    }
+
+    <!-- Home Enquiry Popup -->
+    <div class="modal" id="homeModel">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="product-details-inner">
+
+                        @using (Html.BeginForm("CallEnquiry", "Contact", FormMethod.Post, new { @enctype = "multipart/form-data", id = "CallEnquiry" }))
+                        {
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="product-large-slider">
+                                        <div class="pro-large-img img-zoom">
+                                            <img src="~/Content/assets/Images/About/fabric2.jpg" class="img-fluid" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="product-details-des">
+                                        <h1 class="product-name">Shree Shanta Synfab LLP</h1>
+                                        <div class="ratings d-flex">
+                                            <span><i class="fa fa-star-o"></i></span>
+                                            <span><i class="fa fa-star-o"></i></span>
+                                            <span><i class="fa fa-star-o"></i></span>
+                                            <span><i class="fa fa-star-o"></i></span>
+                                            <span><i class="fa fa-star-o"></i></span>
+                                        </div>
+                                        <p class="pro-desc text-justify">
+                                            Hello there!<br />
+                                            We noticed your interest in our fabric textile company, so kindly provide us with the following information, and our team will get back to you:
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-sm-6 col-12">
+                                                <div class="price-box">
+                                                    <span class="price-regular">Full Name:</span>
+                                                    <input type="text" name="cname" class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-sm-6 col-12">
+                                                <div class="price-box">
+                                                    <span class="price-regular">Phone Number:</span>
+                                                    <input type="text" name="cmobile" class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-sm-6 col-12">
+                                                <div class="price-box">
+                                                    <span class="price-regular">Desired Pattern:</span>
+                                                    <input type="text" name="cpattern" class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-sm-6 col-12">
+                                                <div class="price-box">
+                                                    <span class="price-regular">Fabric Specifications: (e.g., weight, width, color, pattern)</span>
+                                                    <input type="text" name="cspecification" class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-sm-6 col-12">
+                                                <div class="price-box">
+                                                    <span class="price-regular">Quantity Needed:</span>
+                                                    <input type="text" name="cqty" class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-sm-6 col-12">
+                                                <div class="price-box">
+                                                    <span class="price-regular">Company/Venture Name (if any):</span>
+                                                    <input type="text" name="cventure" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-sm-6 col-12">
+                                                <div class="quantity-cart-box d-flex align-items-center mt-2">
+                                                    <div class="action_link">
+                                                        <button class="btn btn-cart2">Send Enquiry</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <br />
+                                            <div class="col-lg-12 col-12">
+                                                <div class="alert alert-success" style="background: none; color: black; border-color: #ffa073;" id="CallEnquiryMessage">
+                                                    <strong>Thank You! </strong> Our team will review your enquiry promptly and reach out to you as soon as possible.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Home Enquiry Popup End -->
+
+</main>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.videoPopup').click(function (e) {
+            e.preventDefault();
+            var recordId = $(this).data('record-id');
+            $('#property-modal-' + recordId).modal('show');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#homeModel').modal('show');
+    });
+</script>

@@ -1,0 +1,198 @@
+﻿@model IEnumerable<SSSLLP.Models.MyCart_Tbl>
+@{
+    ViewBag.Title = "SSS LLP - Checkout";
+}
+
+<main>
+    <!-- breadcrumb area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="~/"><i class="fa fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="~/MyCart">Cart</a></li>
+                                <li class="breadcrumb-item active">Checkout</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+    <!-- checkout main wrapper start -->
+    @using (Html.BeginForm("PlaceOrder", "Checkout", FormMethod.Post))
+    {
+        <div class="checkout-page-wrapper section-padding">
+            <div class="container">
+                <div class="row">
+                    <!-- Checkout Billing Details -->
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Checkout Login Coupon Accordion Start -->
+                                <div class="checkoutaccordion" id="checkOutAccordion">
+                                    <div class="card">
+                                        <h5>
+                                            <span data-bs-toggle="" data-bs-target="#logInaccordion">Billing Details / Shippping Address</span>
+                                        </h5>
+                                        <div id="logInaccordion" class="" data-bs-parent="#checkOutAccordion">
+                                            <div class="card-body">
+                                                <div class="checkout-billing-details-wrap">
+                                                    <div class="billing-form-wrap">
+                                                        <form action="">
+
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="single-input-item">
+                                                                        <label for="FirstName" class="required">First Name</label>
+                                                                        <input id="FirstName" name="FirstName" type="text" required placeholder="First Name*">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div class="single-input-item">
+                                                                        <label for="LastName" class="required">Last Name</label>
+                                                                        <input id="LastName" name="LastName" type="text" required placeholder="Last Name*">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="single-input-item">
+                                                                        <label for="Email" class="required">Email Address</label>
+                                                                        <input id="Email" name="Email" type="email" required placeholder="Email Address*">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div class="single-input-item">
+                                                                        <label for="Mobile" class="required">Mobile</label>
+                                                                        <input id="Mobile" name="Mobile" type="tel" required placeholder="Mobile*">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="single-input-item">
+                                                                        <label for="State" class="required">State</label>
+                                                                        <input id="State" type="text" name="State" placeholder="State" required="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div class="single-input-item">
+                                                                        <label for="City" class="required">Town / City</label>
+                                                                        <input id="City" type="text" name="City" placeholder="Town / City" required="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="single-input-item">
+                                                                <label for="Address" class="required">Address</label>
+                                                                <input id="Address" name="Address" type="text" placeholder="Street address Line 2 (Optional)" required="">
+                                                            </div>
+
+                                                            <div class="single-input-item">
+                                                                <label for="PostCode" class="required">Postcode / ZIP</label>
+                                                                <input id="PostCode" type="text" name="PostCode" placeholder="Postcode / ZIP" required="">
+                                                            </div>
+
+                                                            <div class="single-input-item">
+                                                                <label for="OrderNote" class="required">Order Note</label>
+                                                                <textarea id="OrderNote" name="OrderNote" cols="30" rows="3" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                                            </div>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Checkout Login Coupon Accordion End -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary Details -->
+                    <div class="col-lg-6">
+                        <div class="order-summary-details">
+                            <h4 class="checkout-title">Your Order Summary</h4>
+                            <div class="order-summary-content">
+                                <!-- Order Summary Table -->
+                                <div class="order-summary-table table-responsive text-center">
+
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Product Name</th>
+                                                <th>Selected Color</th>
+                                                <th>Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Session["username"] != null)
+                                            {
+                                                int i = 0;
+                                                foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td><a href="product-details.html">@item.Product.pname</a></td>
+                                                        <td>
+                                                            <div class="display-inline-block">@item.ColorName </div>
+                                                            <div style="display:block;margin:auto; background-color:@item.ColorName;height:23px;width:50px;border-radius:50px;"></div>
+                                                        </td>
+                                                        <td> @item.Quantity</td>
+                                                        <td class="d-none"><input hidden value="@item.ProductID" name="ProductId_@(i)" /></td>
+                                                        <td class="d-none"><input hidden value="@item.Quantity" name="Quantity_@(i)" /></td>
+                                                        <td class="d-none"><input hidden value="@item.ColorId" name="ColorId_@(i)" /></td>
+                                                    </tr>
+                                                    i++;
+                                                }
+
+
+                                            }
+                                            else
+                                            {
+                                                <text>Please login to Checkout</text>
+                                            }
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+                                @if (Model.Count() > 0)
+                                {
+                                    <div class="order-payment-method">
+                                        <div class="summary-footer-area">
+                                            <button type="submit" class="btn btn-sqr">Place Order</button>
+                                        </div>
+                                    </div>
+                                }
+                                    @if (Model.Count() < 1)
+                                    {
+                                        <div class="emptyCart my-3 d-flex align-items-center justify-content-center flex-column py-3">
+                                            <img src="~/Content/assets/Images/About/empty-cart.png" class=" mx-auto d-block img-fluid my-4" />
+                                            <h4 class="text-center mb-4">Your Checkout List Is Empty !</h4>
+                                            <a class="btn btn-cart2 text-center mx-auto" href="~/MyCart/"><span data-bs-toggle="tooltip" title="View Products">View Cart </span></a>
+
+                                        </div>
+                                    }
+                                </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+
+    }
+    <!-- checkout main wrapper end -->
+</main>

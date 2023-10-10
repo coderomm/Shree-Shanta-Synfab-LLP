@@ -1,0 +1,9 @@
+﻿@model SSSLLP.Models.ClientReportPartyAccountViewModel
+
+
+<li class="user-hover">
+    <a href="@(Session["username"] != null ? "Hello "+Session["username"] : Url.Action("Login", "Account"))" data-bs-toggle="tooltip" title="View Client Report">
+        <i class="pe-7s-download"></i>
+    </a>
+</li>
+

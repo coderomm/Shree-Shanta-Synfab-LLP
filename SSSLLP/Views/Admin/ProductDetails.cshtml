@@ -1,0 +1,75 @@
+﻿@model SSSLLP.Models.Product_Tbl
+
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ProductDetails</h2>
+
+<div>
+    <h4>Product_Tbl</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pimg1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pimg1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pimg2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pimg2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pimg3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pimg3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pdetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pdetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

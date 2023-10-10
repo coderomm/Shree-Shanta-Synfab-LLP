@@ -1,0 +1,579 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewBag.Title</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/assets/img/favicon.ico">
+
+    <!-- CSS
+    ============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/vendor/bootstrap.min.css">
+    <!-- Pe-icon-7-stroke CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/vendor/pe-icon-7-stroke.css">
+    <!-- Font-awesome CSS -->
+    <link rel="stylesheet" href="~/Content/assets/css/vendor/font-awesome.min.css">
+    <!-- Slick slider css -->
+    <link rel="stylesheet" href="~/Content/assets/css/plugins/slick.min.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="~/Content/assets/css/plugins/animate.css">
+    <!-- Nice Select css -->
+    <link rel="stylesheet" href="~/Content/assets/css/plugins/nice-select.css">
+    <!-- jquery UI css -->
+    <link rel="stylesheet" href="~/Content/assets/css/plugins/jqueryui.min.css">
+    <!-- main style css -->
+    <link rel="stylesheet" href="~/Content/assets/css/style.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Space+Grotesk+Nunito+Sans:wght@400&display=swap" rel="stylesheet">
+
+    <!-- font awesome link -->
+    <script src="https://kit.fontawesome.com/83b03edf2b.js" crossorigin="anonymous"></script>
+
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<style>
+    #CallEnquiryMessage {
+        display: none;
+    }
+</style>
+<body>
+    <!-- Start Header Area -->
+    <header class="header-area header-wide">
+
+        <!-- main header start -->
+        <div class="main-header d-none d-lg-block">
+
+            <!-- header top start -->
+            <div class="header-top" style="background-color: #f3f3f3; border-top: 3px solid #fa8f47;">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4">
+                            <div class="header-top-settings">
+                                <ul class="nav align-items-center">
+                                    @foreach (var item in @ViewBag.CompanyDetails)
+                                    {
+                                        <li>
+                                            <p>Call : <a href="tel:@item.cMobile1"><i class="fa fa-phone" style="color: #e99c2e;"></i> @item.cMobile1</a> , <a href="tel:@item.cMobile2"><i class="fa fa-phone" style="color: #e99c2e;"></i> @item.cMobile2</a></p>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="header-configure-area">
+                                <ul class="nav justify-content-end">
+
+                                    <li class="user-hover">
+                                        @if (Session["VerificationName"] != null)
+                                        {
+                                            <a href="@Url.Action("ClientReport", "Account")" data-bs-toggle="tooltip" title="View Client Report">
+                                                <i class="pe-7s-download"></i>
+                                            </a>
+                                        }
+                                    </li>
+
+                                    <li class="user-hover">
+                                        <a href="@(Session["username"] != null ? Url.Action("Index", "Account") : Url.Action("Login", "Account"))" data-bs-toggle="tooltip" title="@(Session["username"] != null ? "Hi " + @Session["username"] : "Login")">
+                                            <i class="pe-7s-user"></i>
+                                        </a>
+                                        @if (Session["username"] != null)
+                                        {
+                                            <ul class="dropdown-list">
+
+                                                <li><a href="" style="color: #ffa073; font-weight: 900;">Hi @Session["username"]</a></li>
+                                                <li><a href="@Url.Action("Index","Account")">My Account</a></li>
+                                                <li><a href="@Url.Action("Logout","Account")">Log Out</a></li>
+
+                                            </ul>
+                                        }
+                                    </li>
+
+                                    <li>
+                                        <a href="@(Session["username"] != null ? Url.Action("Index", "MyCart") : Url.Action("Login", "Account"))" class="minicart-btn" data-bs-toggle="tooltip" title="Cart">
+                                            <i class="pe-7s-cart"></i>
+
+                                            @if (ViewBag.CartItemCount > 0)
+                                            {
+                                                <div class="notification">
+                                                    @ViewBag.CartItemCount
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="notification">0</div>
+                                            }
+                                        </a>
+                                    </li>
+                                    @if (Session["username"] != null)
+                                    {
+                                        <li><a href="@(Session["username"] != null ? Url.Action("Index", "CheckOut") : Url.Action("Login", "Account"))"><i class="pe-7s-next-2"></i></a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-top">
+                <div class="container-fluid">
+                    @foreach (var item in @ViewBag.CompanyDetails)
+                    {
+                        <div class="row align-items-center">
+                            <div class="col-lg-4 col-sm-4 text-right">
+                                <div class="header-top-settings">
+                                    <ul class="nav align-items-center">
+                                        <li>
+                                            <p>Mail : <a href="mailto:+@item.cEmail"><i class="fa fa-envelope-o" style="color: #e99c2e;"></i> @item.cEmail</a></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8 col-sm-8">
+                                <div class="header-top-settings">
+                                    <ul class="nav align-items-center float-end">
+                                        <li class="text-end">
+                                            <p> <a href="https://goo.gl/maps/v3sbUahGoCpPY3bE8"><i class="fa fa-map-marker" style="color: #e99c2e;"></i> @item.cAddress</a></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- header top end -->
+            <!-- header middle area start -->
+            <div class="header-main-area sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center position-relative">
+
+                        <!-- start logo area -->
+                        @foreach (var item in @ViewBag.CompanyDetails)
+                        {
+                            <div class="col-lg-3">
+                                <div class="logo">
+                                    <a href="~/">
+                                        @*<img src="@Url.Content("~/Content/assets/Images/About/" + item.cLogo)" alt="Brand Logo" class="img-fluid w-50">*@
+                                        <img src="@Url.Content("~/Content/assets/Images/About/" + item.cLogo)" alt="Brand Logo" class="img-fluid w-50">
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                        <!-- start logo area -->
+                        <!-- main menu area start -->
+                        <div class="col-lg-9 position-static">
+                            <div class="main-menu-area">
+                                <div class="main-menu">
+                                    <!-- main menu navbar start -->
+                                    <nav class="desktop-menu">
+                                        <ul>
+                                            <li class="@((ViewBag.ActivePage == "Home") ? "active" : "")"><a href="~/">Home</a></li>
+                                            <li class="@((ViewBag.ActivePage == "About") ? "active" : "")"><a href="~/About">About Us</a></li>
+                                            <li class="@((ViewBag.ActivePage == "OurBusinesses") || (ViewBag.ActivePage == "Suiting") || (ViewBag.ActivePage == "Uniforms") ? "active" : "")">
+                                                <a href="~/OurBusinesses">Our Businesses<i class="fa fa-angle-down"></i></a>
+                                                <ul class="dropdown">
+                                                    <li class="@((ViewBag.ActivePage == "Suiting") ? "active" : "")"><a href="~/OurBusinesses/Suiting">Suiting</a></li>
+                                                    <li class="@((ViewBag.ActivePage == "Uniforms") ? "active" : "")"><a href="~/OurBusinesses/Uniforms">Uniforms</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="@((ViewBag.ActivePage == "MachineSpecification") || (ViewBag.ActivePage == "MissionAndVision") || (ViewBag.ActivePage == "ProductionProcess") ? "active" : "")">
+                                                <a href="~/MachineSpecification">Machine Specifications <i class="fa fa-angle-down"></i></a>
+                                                <ul class="dropdown">
+                                                    <li class="@((ViewBag.ActivePage == "MissionAndVision") ? "active" : "")"><a href="~/MissionAndVision">Mission & Vision </a></li>
+                                                    <li class="@((ViewBag.ActivePage == "ProductionProcess") ? "active" : "")"><a href="~/ProductionProcess">Production Process </a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="@((ViewBag.ActivePage == "Gallery") ? "active" : "")"><a href="~/Gallery">Gallery</a></li>
+                                            <li class="@((ViewBag.ActivePage == "Contact") || (ViewBag.ActivePage == "Enquiry") ? "active" : "")">
+                                                <a href="~/Contact">Contact Us<i class="fa fa-angle-down"></i></a>
+                                                <ul class="dropdown">
+                                                    <li class="@((ViewBag.ActivePage == "Enquiry") ? "active" : "")"><a href="~/Contact/Enquiry">Enquiry</a></li>
+                                                    <li class="@((ViewBag.ActivePage == "Maps") ? "active" : "")"><a href="https://goo.gl/maps/v3sbUahGoCpPY3bE8">Map</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <!-- main menu navbar end -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- main menu area end -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- header middle area end -->
+
+        </div>
+        <!-- main header start -->
+        <!-- mobile header start -->
+        <div class="mobile-header d-lg-none d-md-block sticky py-0">
+
+            <div class="header-top mobile-header-top py-2" style="border-top: 3px solid #fa8f47;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-7" style="display:flex;align-items:center;justify-content:start;flex-direction:row;">
+                            @foreach (var item in @ViewBag.CompanyDetails)
+                            {
+                                <p class="p-0 m-0 d-inline-block">
+                                    <a style="font-size:13px" class="me-2" href="tel:@item.cMobile1"><i class="fa fa-phone" style="color: #e99c2e;"></i> @item.cMobile1</a>
+                                </p>
+                                <p class="p-0 m-0 d-inline-block">
+                                    <a style="font-size:13px" href="tel:@item.cMobile2"><i class="fa fa-phone" style="color: #e99c2e;"></i> @item.cMobile2</a>
+                                </p>
+                            }
+                        </div>
+                        <div class="col-5" style="display:flex;align-items:center;justify-content:end;">
+                            <div class="header-configure-area p-0">
+                                <ul class="nav">
+                                    <li class="user-hover">
+                                        @if (Session["VerificationName"] != null)
+                                        {
+                                            <a href="@Url.Action("ClientReport", "Account")" data-bs-toggle="tooltip" title="View Client Report">
+                                                <i class="pe-7s-download"></i>
+                                            </a>
+                                        }
+                                    </li>
+                                    <li class="user-hover">
+                                        <a href="@(Session["username"] != null ? Url.Action("Index", "Account") : Url.Action("Login", "Account"))" data-bs-toggle="tooltip" title="@(Session["username"] != null ? "Hi " + @Session["username"] : "Login")">
+                                            <i class="pe-7s-user"></i>
+                                        </a>
+                                        @if (Session["username"] != null)
+                                        {
+                                            <ul class="dropdown-list">
+
+                                                <li><a href="" style="color: #ffa073; font-weight: 900;">Hi @Session["username"]</a></li>
+                                                <li><a href="@Url.Action("Index","Account")">My Account</a></li>
+                                                <li><a href="@Url.Action("Logout","Account")">Log Out</a></li>
+
+                                            </ul>
+                                        }
+                                    </li>
+
+                                    <li>
+                                        <a href="@(Session["username"] != null ? Url.Action("Index", "MyCart") : Url.Action("Login", "Account"))" class="minicart-btn" data-bs-toggle="tooltip" title="Cart">
+                                            <i class="pe-7s-cart"></i>
+
+                                            @if (ViewBag.CartItemCount > 0)
+                                            {
+                                                <div class="notification">
+                                                    @ViewBag.CartItemCount
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="notification">0</div>
+                                            }
+                                        </a>
+                                    </li>
+                                    @if (Session["username"] != null)
+                                    {
+                                        <li><a href="@(Session["username"] != null ? Url.Action("Index", "CheckOut") : Url.Action("Login", "Account"))"><i class="pe-7s-next-2"></i></a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container py-1">
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <div class="mobile-main-header">
+                            @foreach (var item in @ViewBag.CompanyDetails)
+                            {
+                                <div class="mobile-logo">
+                                    <a href="~/">
+                                        <img src="@Url.Content("~/Content/assets/Images/About/" + item.cLogo)" alt="Brand Logo">
+                                    </a>
+                                </div>
+                            }
+                            <div class="mobile-menu-toggler">
+
+                                <button class="mobile-menu-btn">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile header end -->
+        <!-- offcanvas mobile menu start -->
+        <!-- off-canvas menu start -->
+        <aside class="off-canvas-wrapper">
+            <div class="off-canvas-overlay"></div>
+            <div class="off-canvas-inner-content">
+                <div class="btn-close-off-canvas">
+                    <i class="pe-7s-close"></i>
+                </div>
+
+                <div class="off-canvas-inner">
+
+                    <!-- mobile menu start -->
+                    <div class="mobile-navigation">
+
+                        <!-- mobile menu navigation start -->
+                        <nav>
+                            <ul class="mobile-menu">
+                                <li class="menu-item-has-children">
+                                    <a href="~/">Home</a>
+                                </li>
+                                <li class="menu-item-has-children"><a href="~/About">About Us</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="~/OurBusinesses/">Our Businesses</a>
+                                    <ul class="dropdown">
+                                        <li><a href="~/OurBusinesses/Suiting">Suiting Business</a></li>
+                                        <li><a href="~/OurBusinesses/Uniforms">Uniforms Business</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="menu-item-has-children">
+                                    <a href="~/MachineSpecification">Infrastructure</a>
+                                    <ul class="dropdown">
+                                        <li><a href="~/MachineSpecification">Machine Specifications </a></li>
+                                        <li><a href="~/MissionAndVision">Mission & Vision </a></li>
+                                        <li><a href="~/ProductionProcess">Production Process </a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="~/Gallery">Gallery</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="~/Contact">Contact Us</a>
+                                    <ul class="dropdown">
+                                        <li><a href="~/Contact">Reach Us</a></li>
+                                        <li><a href="~/Contact/Enquiry">Enquiry</a></li>
+                                        <li><a href="https://goo.gl/maps/v3sbUahGoCpPY3bE8">Map</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- mobile menu navigation end -->
+                    </div>
+                    <!-- mobile menu end -->
+                    <!-- offcanvas widget area start -->
+                    @foreach (var item in @ViewBag.CompanyDetails)
+                    {
+                        <div class="offcanvas-widget-area mb-5">
+                            <div class="off-canvas-contact-widget">
+                                <ul>
+                                    <li>
+                                        <a href="tel:@item.cMobile1"><i class="fa fa-phone" style="color: #e99c2e;"></i> @item.cMobile1</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="tel:@item.cMobile2"><i class="fa fa-phone" style="color: #e99c2e;"></i> @item.cMobile2</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="mailto:+@item.cEmail"><i class="fa fa-envelope-o" style="color: #e99c2e;"></i>  Gmail/shreeshantasynfabllp</a>
+                                    </li>
+
+                                    <li>
+                                        <a href=""><i class="fa fa-map-marker" style="color: #e99c2e;"></i> @item.cAddress</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="off-canvas-social-widget">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    }
+                    <!-- offcanvas widget area end -->
+                </div>
+            </div>
+        </aside>
+        <!-- off-canvas menu end -->
+        <!-- offcanvas mobile menu end -->
+    </header>
+    <!-- end Header Area -->
+
+    @RenderBody()
+
+    <!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- Scroll to Top End -->
+    <!-- footer area start -->
+
+    <div class="midBorder mx-auto my-2" style="height: 1px; background-color: #ffa073; width: 80%"></div>
+
+    <footer class="">
+
+        <div class="footer-widget-area" style="border-bottom: 1px solid #efefef;">
+            <div class="container">
+                <div class="row mtn-30">
+                    <div class="col-lg-4 col-sm-4 col-12 order-2 order-sm-1 text-center">
+                        <div class="footer-widget-item mt-30">
+                            <h4 class="widget-title text-uppercase">Shree Shanta Synfab LLP</h4>
+                            <ul class="footer-links usefull-links">
+                                <li><a href="~/About">About Us</a></li>
+                                <li><a href="~/OurBusinesses/Suiting">Suiting Business</a></li>
+                                <li><a href="~/OurBusinesses/Uniforms">Uniforms Business</a></li>
+                                <li><a href="~/MachineSpecification">Machine Specifications</a></li>
+                                <li><a href="~/MissionAndVision">Our Vision</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-12 order-1 order-sm-2 text-center">
+                        <img src="~/Content/assets/Images/About/sssllp_logo_footer.png" alt="Brand Logo" class="img-fluid" />
+                        <div class="off-canvas-social-widget">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-12 order-3 order-sm-3 text-center">
+                        <div class="footer-widget-item mt-30">
+                            <h4 class="widget-title">More Links</h4>
+                            <ul class="footer-links usefull-links">
+                                <li><a href="~/OurBusinesses">Our Businesses</a></li>
+                                <li><a href="~/ProductionProcess">Our Production Process</a></li>
+                                <li><a href="~/Gallery">Gallery</a></li>
+                                <li><a href="~/Contact">Contact Us</a></li>
+                                <li><a href="~/Contact/Enquiry">Enquiry Us</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-area text-center mb-5 mb-md-0" style="padding-top: 20px; padding-bottom: 20px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="copyright py-1" style="text-align: center; color: #868686;">© Copyright @DateTime.Now.Year <a style="color: #000;" href="https://www.linkedin.com/in/1omsharma/">Shree Shanta Synfab LLP</a>. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-device-mobile">
+            <div class="wapper">
+                <div class="footer-device-mobile-item device-home">
+                    <a href="~/">
+                        <span class="icon">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                        </span>
+                        Home
+                    </a>
+                </div>
+
+                <div class="footer-device-mobile-item device-home device-cart">
+                    <a href="~/OurBusinesses/">
+                        <span class="icon">
+                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        </span>
+                        <span class="text">Our Business</span>
+                    </a>
+                </div>
+                <div class="footer-device-mobile-item device-home device-user">
+                    <a href="~/Contact/">
+                        <span class="icon">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                        Order Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- footer area end -->
+    <!-- JS
+    ============================================ -->
+    <!-- Modernizer JS -->
+    <script src="~/Content/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+
+    <!-- jQuery JS -->
+    <script src="~/Content/assets/js/vendor/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="~/Content/assets/js/vendor/bootstrap.bundle.min.js"></script>
+
+    <!-- slick Slider JS -->
+    <script src="~/Content/assets/js/plugins/slick.min.js"></script>
+
+    <!-- Nice Select JS -->
+    <script src="~/Content/assets/js/plugins/nice-select.min.js"></script>
+
+    <!-- jquery UI JS -->
+    <script src="~/Content/assets/js/plugins/jqueryui.min.js"></script>
+
+    <!-- Image zoom JS -->
+    <script src="~/Content/assets/js/plugins/image-zoom.min.js"></script>
+
+    <!-- mail-chimp active js -->
+    <script src="~/Content/assets/js/plugins/ajaxchimp.js"></script>
+
+    <!-- contact form dynamic js -->
+    <script src="~/Content/assets/js/plugins/ajax-mail.js"></script>
+
+    <!-- Main JS -->
+    <script src="~/Content/assets/js/main.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#success-alert").fadeOut(2000, 500)
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#homeModel').modal('');
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#CallEnquiry').submit(function (event) {
+                //event.preventDefault(); // Prevents the form from submitting and refreshing the page
+
+                // Show the existing message
+                $('#CallEnquiryMessage').fadeIn();
+
+                // Fade out the message after 3/4 second (750 milliseconds)
+                setTimeout(function () {
+                    $('#CallEnquiryMessage').fadeOut();
+                }, 3000);
+            });
+        });
+    </script>
+
+</body>
+</html>

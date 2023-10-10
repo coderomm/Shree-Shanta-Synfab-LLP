@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SSSLLPModelStoreContainer" CdmEntityContainer="SSSLLPEntities">
+    <EntitySetMapping Name="Admin_Tbl">
+      <EntityTypeMapping TypeName="SSSLLPModel.Admin_Tbl">
+        <MappingFragment StoreEntitySet="Admin_Tbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="uName" ColumnName="uName" />
+          <ScalarProperty Name="uPassword" ColumnName="uPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CallEnquiries">
+      <EntityTypeMapping TypeName="SSSLLPModel.CallEnquiry">
+        <MappingFragment StoreEntitySet="CallEnquiry">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cname" ColumnName="cname" />
+          <ScalarProperty Name="cmobile" ColumnName="cmobile" />
+          <ScalarProperty Name="cpattern" ColumnName="cpattern" />
+          <ScalarProperty Name="cspec" ColumnName="cspec" />
+          <ScalarProperty Name="cqty" ColumnName="cqty" />
+          <ScalarProperty Name="cventure" ColumnName="cventure" />
+          <ScalarProperty Name="rts" ColumnName="rts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Color_Tbl">
+      <EntityTypeMapping TypeName="SSSLLPModel.Color_Tbl">
+        <MappingFragment StoreEntitySet="Color_Tbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company_Details_Tbl">
+      <EntityTypeMapping TypeName="SSSLLPModel.Company_Details_Tbl">
+        <MappingFragment StoreEntitySet="Company_Details_Tbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cName" ColumnName="cName" />
+          <ScalarProperty Name="cLogo" ColumnName="cLogo" />
+          <ScalarProperty Name="cSliderImage1" ColumnName="cSliderImage1" />
+          <ScalarProperty Name="cSliderImage2" ColumnName="cSliderImage2" />
+          <ScalarProperty Name="cSliderImage3" ColumnName="cSliderImage3" />
+          <ScalarProperty Name="cAbout" ColumnName="cAbout" />
+          <ScalarProperty Name="cAddress" ColumnName="cAddress" />
+          <ScalarProperty Name="cEmail" ColumnName="cEmail" />
+          <ScalarProperty Name="cMobile1" ColumnName="cMobile1" />
+          <ScalarProperty Name="cMobile2" ColumnName="cMobile2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contact_Enqtbl">
+      <EntityTypeMapping TypeName="SSSLLPModel.Contact_Enqtbl">
+        <MappingFragment StoreEntitySet="Contact_Enqtbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="uname" ColumnName="uname" />
+          <ScalarProperty Name="umob" ColumnName="umob" />
+          <ScalarProperty Name="uemail" ColumnName="uemail" />
+          <ScalarProperty Name="usub" ColumnName="usub" />
+          <ScalarProperty Name="umsg" ColumnName="umsg" />
+          <ScalarProperty Name="rts" ColumnName="rts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers_Tbl">
+      <EntityTypeMapping TypeName="SSSLLPModel.Customers_Tbl">
+        <MappingFragment StoreEntitySet="Customers_Tbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="rts" ColumnName="rts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gallery_Tbl">
+      <EntityTypeMapping TypeName="SSSLLPModel.Gallery_Tbl">
+        <MappingFragment StoreEntitySet="Gallery_Tbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="gimage" ColumnName="gimage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MyCart_Tbl">
+      <EntityTypeMapping TypeName="SSSLLPModel.MyCart_Tbl">
+        <MappingFragment StoreEntitySet="MyCart_Tbl">
+          <ScalarProperty Name="MyCartID" ColumnName="MyCartID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Tbl">
+      <EntityTypeMapping TypeName="SSSLLPModel.Order_Tbl">
+        <MappingFragment StoreEntitySet="Order_Tbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ShippingID" ColumnName="ShippingID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ColorOrder" ColumnName="ColorOrder" />
+          <ScalarProperty Name="OrderColorName" ColumnName="OrderColorName" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageVisits">
+      <EntityTypeMapping TypeName="SSSLLPModel.PageVisit">
+        <MappingFragment StoreEntitySet="PageVisits">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PageUrl" ColumnName="PageUrl" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="VisitDateTime" ColumnName="VisitDateTime" />
+          <ScalarProperty Name="VisitorId" ColumnName="VisitorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Tbl">
+      <EntityTypeMapping TypeName="SSSLLPModel.Product_Tbl">
+        <MappingFragment StoreEntitySet="Product_Tbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="pweight" ColumnName="pweight" />
+          <ScalarProperty Name="pdetails" ColumnName="pdetails" />
+          <ScalarProperty Name="pimg1" ColumnName="pimg1" />
+          <ScalarProperty Name="pimg2" ColumnName="pimg2" />
+          <ScalarProperty Name="pimg3" ColumnName="pimg3" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="rts" ColumnName="rts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductColorlists">
+      <EntityTypeMapping TypeName="SSSLLPModel.ProductColorlist">
+        <MappingFragment StoreEntitySet="ProductColorlist">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="colorname" ColumnName="colorname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Review_Tbl">
+      <EntityTypeMapping TypeName="SSSLLPModel.Review_Tbl">
+        <MappingFragment StoreEntitySet="Review_Tbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="uname" ColumnName="uname" />
+          <ScalarProperty Name="uimg" ColumnName="uimg" />
+          <ScalarProperty Name="ureview" ColumnName="ureview" />
+          <ScalarProperty Name="ureviewdate" ColumnName="ureviewdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShippingDetails">
+      <EntityTypeMapping TypeName="SSSLLPModel.ShippingDetail">
+        <MappingFragment StoreEntitySet="ShippingDetails">
+          <ScalarProperty Name="ShippingID" ColumnName="ShippingID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="OrderNote" ColumnName="OrderNote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="SSSLLPModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="about" ColumnName="about" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientReportingPartyAccountTbls">
+      <EntityTypeMapping TypeName="SSSLLPModel.ClientReportingPartyAccountTbl">
+        <MappingFragment StoreEntitySet="ClientReportingPartyAccountTbl">
+          <ScalarProperty Name="PrimaryCustId" ColumnName="PrimaryCustId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="VerificationName" ColumnName="VerificationName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientReportingTbls">
+      <EntityTypeMapping TypeName="SSSLLPModel.ClientReportingTbl">
+        <MappingFragment StoreEntitySet="ClientReportingTbl">
+          <ScalarProperty Name="BeamBalanceMtr" ColumnName="BeamBalanceMtr" />
+          <ScalarProperty Name="TotalFabricReced" ColumnName="TotalFabricReced" />
+          <ScalarProperty Name="AvgOfPick" ColumnName="AvgOfPick" />
+          <ScalarProperty Name="AvgOfRollingMtr" ColumnName="AvgOfRollingMtr" />
+          <ScalarProperty Name="Nos" ColumnName="Nos" />
+          <ScalarProperty Name="BillFallDate" ColumnName="BillFallDate" />
+          <ScalarProperty Name="DateOfGaitingKnotting" ColumnName="DateOfGaitingKnotting" />
+          <ScalarProperty Name="BeamPipeNo" ColumnName="BeamPipeNo" />
+          <ScalarProperty Name="BeamNo" ColumnName="BeamNo" />
+          <ScalarProperty Name="ReedxPickxRs" ColumnName="ReedxPickxRs" />
+          <ScalarProperty Name="QualityNo" ColumnName="QualityNo" />
+          <ScalarProperty Name="OwnParty" ColumnName="OwnParty" />
+          <ScalarProperty Name="LoomNo" ColumnName="LoomNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

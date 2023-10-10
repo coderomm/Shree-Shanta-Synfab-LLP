@@ -1,0 +1,165 @@
+﻿@model SSSLLP.Models.ProductColorlist
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Forms</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="~/Admin"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Form Layouts</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+        <!--end breadcrumb-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h6 class="mb-0 text-uppercase">Add Product & Details</h6>
+                <hr>
+                <div class="card border-top border-0 border-4 border-danger">
+                    <div class="card-body p-5">
+                        <div class="card-title d-flex align-items-center">
+                            <h5 class="mb-0 text-danger">Add Product & Details</h5>
+                        </div>
+                        <hr>
+                        @using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "row g-3" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="col-lg-6">
+                                <label for="pname" class="form-label">Product Name</label>
+                                <div class="input-group">
+                                    <input name="pname" type="text" class="form-control" id="pname" placeholder="Product Name">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label for="pweight" class="form-label">Product Weight Per Unit In Grams</label>
+                                <div class="input-group">
+                                    <input name="pweight" type="text" class="form-control" id="pweight" placeholder="Product Weight">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="pdetails" class="form-label">Product About Section</label>
+                                <textarea name="pdetails" class="form-control" id="pdetails" placeholder="Enter About Product" rows="3"></textarea>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="pcolor" class="form-label">Select Color </label>
+                                <div class="row">
+                                    @foreach (var item in Model.Color_Tbl)
+                                    {
+                                        <div class="col-lg-4 col-sm-4 col-6">
+                                            <div class="selectColor d-flex justify-content-start align-items-center m-1">
+                                                <h6 class="ColorName">@item.ColorName</h6>
+                                                <div class="mx-2" style="height:25px;width:25px;background-color:@item.ColorName;border-radius:10px;"></div>
+                                                <input id="colorCB@(item.Id)" type="checkbox" name="SelectedColorId" value="@item.Id" />
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <label for="pimg1" class="form-label">Product Image 1</label>
+                                <div class="input-group">
+                                    <input name="pimg1" class="form-control" type="file" id="pimg1">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <label for="pimg2" class="form-label">Product Image 2</label>
+                                <div class="input-group">
+                                    <input name="pimg2" class="form-control" type="file" id="pimg2">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <label for="pimg3" class="form-label">Product Image 3</label>
+                                <div class="input-group">
+                                    <input name="pimg3" class="form-control" type="file" id="pimg3">
+                                </div>
+                            </div>
+                            @Html.Hidden("ColorName")
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-danger px-5" onclick="updatemark()">Add Product</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h6 class="mb-0 text-uppercase">Products DataTable</h6>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Image 1</th>
+                                <th>Status</th>
+                                <th>A/D</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in @ViewBag.AllProduct)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.pname</td>
+                                    <td><img src="@Url.Content("~/Content/assets/Images/Products/" + @item.pimg1)" class="img-fluid" height="50" width="50" /></td>
+                                    <td>@item.status</td>
+                                    @{
+                                        if (item.status == true)
+                                        {
+                                            <td><a href="@Url.Action("ChangeToDeactive", "Admin",new {id=item.Id})" class="btn btn-secondary">Deactive</a></td>
+                                        }
+                                        else
+                                        {
+                                            <td><a href="@Url.Action("ChangeToActive", "Admin",new {id=item.Id})" class="btn btn-success">Active</a></td>
+                                        }
+                                    }
+                                    <td><a href="@Url.Action("EditProduct", "Admin",new {id=item.Id})" class="btn btn-primary">Edit</a></td>
+                                    <td><a href="@Url.Action("DeleteProduct", "Admin",new {id=item.Id})" class="btn btn-danger">Delete</a></td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function updatemark(arg) {
+        var abc = ""
+        //Iterating the collection of checkboxes which checked marked
+        $('input[type=checkbox]').each(function () {
+            if (this.checked) {
+                abc = abc + $(this).val() + ","
+                //assign set value to hidden field
+                $('#ColorName').val(abc);
+            }
+        });
+
+    }
+</script>

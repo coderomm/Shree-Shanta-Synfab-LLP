@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SSSLLPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="uPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CallEnquiry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cmobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cpattern" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cspec" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cqty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cventure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="rts" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Color_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ColorName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Company_Details_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cLogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cSliderImage1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cSliderImage2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cSliderImage3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cAbout" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cMobile1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cMobile2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Contact_Enqtbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="umob" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="uemail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="usub" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="umsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="rts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Customers_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="First_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="rts" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Gallery_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gimage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MyCart_Tbl">
+    <Key>
+      <PropertyRef Name="MyCartID" />
+    </Key>
+    <Property Name="MyCartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="ColorId" Type="Int32" />
+    <Property Name="ColorName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Order_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="ShippingID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="ColorOrder" Type="Int32" />
+    <Property Name="OrderColorName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PageVisit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IpAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VisitDateTime" Type="DateTime" Precision="3" />
+    <Property Name="VisitorId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Product_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pweight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="pdetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="pimg1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="pimg2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="pimg3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Boolean" />
+    <Property Name="rts" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProductColorlist">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pid" Type="Int32" Nullable="false" />
+    <Property Name="cid" Type="Int32" Nullable="false" />
+    <Property Name="colorname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Review_Tbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="uimg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ureview" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ureviewdate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ShippingDetail">
+    <Key>
+      <PropertyRef Name="ShippingID" />
+    </Key>
+    <Property Name="ShippingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="about" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="SSSLLPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin_Tbl" EntityType="Self.Admin_Tbl" />
+    <EntitySet Name="CallEnquiries" EntityType="Self.CallEnquiry" />
+    <EntitySet Name="Color_Tbl" EntityType="Self.Color_Tbl" />
+    <EntitySet Name="Company_Details_Tbl" EntityType="Self.Company_Details_Tbl" />
+    <EntitySet Name="Contact_Enqtbl" EntityType="Self.Contact_Enqtbl" />
+    <EntitySet Name="Customers_Tbl" EntityType="Self.Customers_Tbl" />
+    <EntitySet Name="Gallery_Tbl" EntityType="Self.Gallery_Tbl" />
+    <EntitySet Name="MyCart_Tbl" EntityType="Self.MyCart_Tbl" />
+    <EntitySet Name="Order_Tbl" EntityType="Self.Order_Tbl" />
+    <EntitySet Name="PageVisits" EntityType="Self.PageVisit" />
+    <EntitySet Name="Product_Tbl" EntityType="Self.Product_Tbl" />
+    <EntitySet Name="ProductColorlists" EntityType="Self.ProductColorlist" />
+    <EntitySet Name="Review_Tbl" EntityType="Self.Review_Tbl" />
+    <EntitySet Name="ShippingDetails" EntityType="Self.ShippingDetail" />
+    <EntitySet Name="Teams" EntityType="Self.Team" />
+    <EntitySet Name="ClientReportingPartyAccountTbls" EntityType="SSSLLPModel.ClientReportingPartyAccountTbl" />
+    <EntitySet Name="ClientReportingTbls" EntityType="SSSLLPModel.ClientReportingTbl" />
+  </EntityContainer>
+  <EntityType Name="ClientReportingPartyAccountTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VerificationName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="PrimaryCustId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ClientReportingTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoomNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OwnParty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QualityNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReedxPickxRs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BeamNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BeamPipeNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfGaitingKnotting" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BillFallDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AvgOfRollingMtr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AvgOfPick" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalFabricReced" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BeamBalanceMtr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

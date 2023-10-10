@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SSSLLP.Models.Gallery_Tbl>
+
+@{
+    ViewBag.Title = "SSS LLP - Gallery";
+}
+
+<main>
+    <!-- breadcrumb area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="~/"><i class="fa fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a class="@((ViewBag.ActivePage == "Gallery") ? "active" : "")" href="~/Gallery">Gallery</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+    <section class="infra-gallery-div" style="margin-top:70px;">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-6">
+                        <div class="infra-img-box wow zoomIn animated my-3" data-wow-delay=".6s" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.6s; animation-name: zoomIn;">
+                            <a href="" data-toggle="lightbox" data-gallery="gallery" class="gal-img-mrg">
+                                <img src="~/Content/assets/Images/Gallery/@item.gimage" class="img-fluid rounded-2">
+                            </a>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+</main>
+
+

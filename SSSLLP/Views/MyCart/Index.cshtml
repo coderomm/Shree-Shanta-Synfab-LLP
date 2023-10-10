@@ -1,0 +1,95 @@
+﻿@model IEnumerable<SSSLLP.Models.CartProductViewModel>
+
+@{
+    ViewBag.Title = "SSS LLP - Cart";
+}
+
+<main>
+    <!-- breadcrumb area start -->
+    <div class="breadcrumb-area">
+        <!-- ...breadcrumb code... -->
+    </div>
+    <!-- breadcrumb area end -->
+    <!-- cart main wrapper start -->
+    <div class="cart-main-wrapper section-padding">
+        <div class="container">
+            <div class="section-bg-color">
+                @using (Html.BeginForm("ProcedToCheckout", "MyCart", FormMethod.Post))
+                {
+                    <!-- ...form and row code... -->
+                    <div class="col-lg-12">
+                        <!-- Cart Table Area -->
+                        <div class="cart-table table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="pro-title pro-thumbnail" colspan="2">Product</th>
+                                        <th class="pro-quantity">Selected Colors</th>
+                                        <th class="pro-quantity">Quantity</th>
+                                        <th class="pro-remove">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Session["username"] != null)
+                                    {
+                                        int i = 0;
+                                        foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                @Html.Hidden("CartProductId-" + i + "", item.CartItem.ProductID)
+                                                @Html.Hidden("CartProductColorId-" + i + "", item.CartItem.ColorId)
+
+                                                <td class="pro-thumbnail">
+                                                    <a href="~/OurBusinesses/Suiting/Pattern/@item.Product.pname">
+                                                        <img class="img-fluid" src="@Url.Content("~/Content/assets/Images/Products/"+ @item.Product.pimg1)" alt="Product">
+                                                    </a>
+                                                </td>
+                                                <td class="pro-title"><a href="~/OurBusinesses/Suiting/Pattern/@item.Product.pname">@item.Product.pname</a></td>
+                                                <td class="pro-quantity">
+
+                                                    <div style="height:30px;width:30px;background-color:@item.CartItem.ColorName;border-radius:10px;"></div>
+
+                                                </td>
+                                                <td class="pro-quantity">
+                                                    <div class="pro-qty">
+                                                        <input id="CartProductQty-@(i)" name="CartProductQty-@(i)" class="aa-cart-quantity" min="1" max="99" value="@item.CartItem.Quantity" />
+                                                    </div>
+                                                </td>
+                                                <td class="pro-remove"><a href="@Url.Action("Remove", "MyCart", new { id = item.Product.Id , colorid=item.CartItem.ColorId})"><i class="fa fa-trash-o"></i></a></td>
+                                            </tr>
+                                            i++;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="5">Please login to view your cart</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                            @if (Model.Count() < 1)
+                            {
+                                <div class="emptyCart my-3 d-flex align-items-center justify-content-center flex-column py-3">
+                                    <img src="~/Content/assets/Images/About/empty-cart.png" class=" mx-auto d-block img-fluid my-4" />
+                                    <h4 class="text-center mb-4">Your cart is empty</h4>
+                                    <a class="btn btn-cart2 text-center mx-auto" href="~/OurBusinesses/Suiting"><span data-bs-toggle="tooltip" title="View Products">View Products </span></a>
+
+                                </div>
+                            }
+                        </div>
+                        @if (Session["username"] != null && Model.Count() > 0)
+                        {
+                            <div class="col-lg-12 mt-3">
+                                <button type="submit" class="btn btn-cart2 float-end">Proceed to Checkout</button>
+                            </div>
+                        }
+                    </div>
+                    <!-- ...closing tags... -->
+                }
+            </div>
+        </div>
+    </div>
+    <!-- cart main wrapper end -->
+</main>

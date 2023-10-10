@@ -1,0 +1,47 @@
+﻿@model SSSLLP.Models.Product_Tbl
+
+<!-- product single item start -->
+<div class="col-lg-3 col-md-4 col-sm-6 col-6">
+    <!-- product grid start -->
+    <div class="product-item">
+        <figure class="product-thumb">
+            <a href="@Url.RouteUrl("WeavingPattern",new { productName = @Model.pname })">
+                <img class="pri-img" src="@Url.Content("~/Content/assets/Images/Products/" + @Model.pimg1)" alt="product">
+                <img class="sec-img" src="@Url.Content("~/Content/assets/Images/Products/" + @Model.pimg3)" alt="product">
+            </a>
+
+            <div class="button-group">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#CallEnq_@Model.pname"><span data-bs-toggle="tooltip" title="Call Enquiry"><i class="fa fa-phone"></i></span></a>
+                <a href="~/OurBusinesses/Suiting/Pattern/@Model.pname" data-bs-toggle="tooltip" title="Sample Enquiry"><i class="fa fa-shopping-cart"></i></a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#@Model.pname"><span data-bs-toggle="tooltip" title="Quick View"><i class="fa fa-eye"></i></span></a>
+            </div>
+        </figure>
+        <div class="product-caption text-center">
+            <h4 class="product-name">
+                <a href="@Url.RouteUrl("WeavingPattern",new { productName = @Model.pname })">@Model.pname Pattern</a>
+            </h4>
+
+        </div>
+    </div>
+    <!-- product grid end -->
+    <!-- product list item end -->
+    <div class="product-list-item">
+        <figure class="product-thumb">
+            <a href="@Url.RouteUrl("WeavingPattern",new { productName = @Model.pname })">
+                <img class="pri-img" src="@Url.Content("~/Content/assets/Images/Products/" + @Model.pimg1)" alt="product">
+                <img class="sec-img" src="@Url.Content("~/Content/assets/Images/Products/" + @Model.pimg3)" alt="product">
+            </a>
+        </figure>
+        <div class="product-content-list">
+            <h4 class="product-name"><a href="@Url.RouteUrl("WeavingPattern",new { productName = @Model.pname })">@Model.pname Pattern</a></h4>
+            <p>@Model.pdetails</p>
+            <div class="button-group">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#CallEnq_@Model.pname"><span data-bs-toggle="tooltip" title="Call Enquiry"><i class="fa fa-phone"></i></span></a>
+                <a href="~/OurBusinesses/Suiting/Pattern/@Model.pname" data-bs-toggle="tooltip" title="Sample Enquiry"><i class="fa fa-shopping-cart"></i></a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#@Model.pname"><span data-bs-toggle="tooltip" title="Quick View"><i class="fa fa-eye"></i></span></a>
+            </div>
+        </div>
+    </div>
+    <!-- product list item end -->
+</div>
+<!-- product single item end -->

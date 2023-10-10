@@ -1,0 +1,204 @@
+﻿@model SSSLLP.Models.Customers_Tbl
+
+@{
+    ViewBag.Title = "SSS LLP - Login / Register";
+}
+<style>
+    .login-message {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<main>
+    <!-- breadcrumb area start -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="~/"><i class="fa fa-home"></i></a></li>
+                                <li class="breadcrumb-item active">Login / Register</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+    <!-- login register wrapper start -->
+    <div class="login-register-wrapper section-padding">
+        <div class="container">
+            <div class="member-area-from-wrap">
+                <div class="row">
+                    <!-- Login Content Start -->
+                    <div class="col-lg-6">
+                        <div class="login-reg-form-wrap">
+                            <h4>Log In</h4>
+                            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "loginForm", @class = "row g-3" }))
+                            {
+                                <div class="single-input-item">
+                                    <label for="">Username or Email address<span>*</span></label>
+                                    <input name="UserName" type="text" required placeholder="Username">
+                                </div>
+                                <div class="single-input-item">
+                                    <label for="">Password<span>*</span></label>
+                                    <input name="Password" type="password" required placeholder="Password">
+                                </div>
+                                <div class="single-input-item">
+                                    <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
+                                        <a href="~/Account/ForgotPassword" class="">Forget Password?</a>
+                                    </div>
+                                </div>
+                                <div class="single-input-item">
+                                    <span id="incorrectMessage" class="text-danger"></span>
+                                </div>
+                                <div class="single-input-item">
+                                    <button class="btn btn-sqr">Login</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <!-- Login Content End -->
+                    <!-- Register Content Start -->
+                    <div class="col-lg-6">
+                        <div class="login-reg-form-wrap sign-up-form">
+                            <h4>Register Here</h4>
+                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "registerForm", @class = "row g-3" }))
+                            {
+                                <div class="single-input-item">
+                                    <label for="">First Name<span>*</span></label>
+                                    <input name="First_Name" type="text" placeholder="Enter first name" required>
+                                </div>
+
+                                <div class="single-input-item">
+                                    <label for="">Last Name<span>*</span></label>
+                                    <input name="Last_Name" type="text" placeholder="Enter last name" required>
+                                </div>
+
+                                <div class="single-input-item">
+                                    <label for="">Username<span>*</span></label>
+                                    <input name="UserName" type="text" placeholder="Username" required>
+                                </div>
+
+                                <div class="single-input-item">
+                                    <label for="">Password<span>*</span></label>
+                                    <input name="Password" type="password" placeholder="Password" required>
+                                </div>
+
+                                <div class="single-input-item">
+                                    <label for="">Email<span>*</span></label>
+                                    <input name="Email" type="text" placeholder="Enter your email" required>
+                                </div>
+
+                                <div class="single-input-item">
+                                    <label for="">Mobile<span>*</span></label>
+                                    <input name="Mobile1" type="text" placeholder="Mobile" required>
+                                </div>
+
+                                <div class="single-input-item">
+                                    <label for="">Address<span></span></label>
+                                    <input name="Address1" type="text" placeholder="Address" required>
+                                </div>
+                                <div class="single-input-item">
+                                    <span id="RegisterincorrectMessage" class="text-danger"></span>
+                                </div>
+                                <div class="single-input-item">
+                                    <button class="btn btn-sqr">Register</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <!-- Register Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+$("#loginForm").submit(function (e) {
+  e.preventDefault(); // Prevent the form from submitting normally
+
+  var form = $(this);
+  var url = form.attr('action');
+  var data = form.serialize();
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    dataType: 'json',
+    success: function (response) {
+      if (response.success) {
+        // Redirect to the desired page on successful login
+        window.location.href = response.redirectUrl;
+      } else {
+        // Show error message for incorrect login
+        $('#incorrectMessage').text('Incorrect Username or Password!');
+
+        // Hide the message after 5 seconds
+        setTimeout(function () {
+          $('#incorrectMessage').text('');
+        }, 5000);
+      }
+    },
+    error: function () {
+      // Show error message for AJAX error
+      $('#incorrectMessage').text('An error occurred while processing the request. Please try again later.');
+
+      // Hide the message after 5 seconds
+      setTimeout(function () {
+        $('#incorrectMessage').text('');
+      }, 5000);
+    }
+  });
+});
+
+
+        $("#registerForm").submit(function (e) {
+        e.preventDefault(); // Prevent the form from submitting normally
+
+        var form = $(this);
+        var url = form.attr('action');
+        var data = form.serialize();
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    // Redirect to the desired page on successful login
+                    window.location.href = '@Url.Action("Index", "Account")';
+                } else {
+                    // Show error message for incorrect login
+                    $('#RegisterincorrectMessage').text('User with this email is already registered ! Use another email to register !');
+
+                    // Hide the message after 5 seconds
+                    setTimeout(function () {
+                        $('#RegisterincorrectMessage').text('');
+                    }, 5000);
+                }
+            },
+            error: function () {
+                // Show error message for AJAX error
+                $('#RegisterincorrectMessage').text('An error occurred while processing the request. Please try again later.');
+
+                // Hide the message after 5 seconds
+                setTimeout(function () {
+                    $('#RegisterincorrectMessage').text('');
+                }, 5000);
+            }
+        });
+    });
+    </script>
+
+
+
+
+</main>
