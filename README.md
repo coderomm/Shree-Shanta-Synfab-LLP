@@ -22,8 +22,6 @@ Welcome to Shree Shanta Synfab LLP, the digital gateway to a textile firm in Bhi
 
 I'm the developer behind Shree Shanta Synfab LLP, a textile firm's digital transformation journey. This platform aims to enhance textile management, reporting, and fabric inquiries, providing an efficient and automated solution.
 
-![Shree Shanta Synfab LLP Logo](https://shreeshantasynfabllp.databoltahai.in/Content/assets/Images/About/SHREE%20SHANTA%20SYNFAB.png)
-
 ## Key Technologies
 
 The technology stack powering Shree Shanta Synfab LLP includes:
